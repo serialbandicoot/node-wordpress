@@ -109,21 +109,18 @@ Deletes a post.
 * `id`: The ID of the post to delete.
 * `callback` (`function( error )`): A callback to invoke when the API call is complete.
 
-#### client.getPostType( name, [, fields], callback )
+#### client.getPostType( name, callback )
 
 Gets a post type by name.
 
 * `name`: The name of the post type to get.
-* `fields` (optional): An array of fields to return.
 * `callback` (`function( error, postType )`): A callback to invoke when the API call is complete.
   * `postType`: An object containing the post type data.
 
-#### client.getPostTypes( [filter], [, fields], callback )
+#### client.getPostTypes( callback )
 
 Gets all post types.
 
-* `filter` (optional): A hash of key/value pairs for filtering which posts types to get.
-* `fields` (optional): An array of fields to return.
 * `callback` (`function( error, postTypes )`): A callback to invoke when the API call is complete.
   * `postTypes`: An array containing the post types.
 
@@ -188,18 +185,6 @@ Deletes a taxonomy term.
 
 ### Media
 
-#### client.getMediaItem( id, callback )
-
-Gets a piece of media by ID.
-
-* `id`: The ID of the piece of media to get.
-* `callback` (`function( error, media )` ): A callback to invoke when the API call is complete.
-
-#### client.getMediaLibrary( [filter], callback )
-
-* `filter` (optional): A hash of key/value pairs for filtering which posts to get.
-* `callback` (`function( error, media )` ): A callback to invoke when the API call is complete.
-
 #### client.uploadFile( data, callback )
 
 Uploads a file to Wordpress.
@@ -212,6 +197,38 @@ Uploads a file to Wordpress.
   * `postId` (optional): Which post to assign the attachment to.
 * `callback` (`function( error, file )`): A callback to invoke when the API call is complete.
   * `file`: An object containing the file data.
+
+### Users
+
+#### client.getUser( id [,fields], callback )
+
+* `id`: The ID of the user to get.
+* `fields`: (optional): An array of fields to return.
+* `callback` (`function( error, user )`): A callback to invoke when the API call is complete.
+  * `user`: An object containing the user data.
+
+#### client.getUsers( [filter] [, fields], callback )
+
+* `filter`: (optional): A hash of key/value pairs for filtering which users to get.
+* `fields`: (optional): An array of fields to return.
+* `callback`: (`function( error, users )`): A callback to invoke when the API call is complete.
+  * `users`: An array containing the users.
+
+#### client.getProfile( [fields], callback )
+
+* `fields`: (optional): An array of fields to return.
+* `callback`: (`function( error, profile )`): A callback to invoke when the API call is complete.
+  * `profile`: An object containing the profile data.
+
+#### client.editProfile( data, callback )
+
+* `data`: The data to update the profile
+* `callback`: (`function( error )`): A callback to invoke when the API call is complete.
+
+#### client.getAuthors( callback )
+
+* `callback`: (`function( error, authors )`): A callback to invoke when the API call is complete.
+  * `authors`: An array containing the authors.
 
 ### Utilities
 
@@ -372,41 +389,26 @@ Invokes a method with the username and password provided by the client.
 * termId
 * termTaxonomyId
 
-#### Media
+#### Users
 
-* attachmentId
-* caption
-* date
-* description
-* link
-* metadata
-  * file
-  * height
-  * imageMeta
-    * aperture
-    * camera
-    * caption
-    * copyright
-    * createdTimestamp
-    * credit
-    * focalLength
-    * iso
-    * keywords
-    * orientation
-    * shutterSpeed
-    * title
-  * sizes
-    * file
-    * height
-    * mimeType
-    * width
-  * width
-* parent
-* thumbnail
-* title
-* type
+* bio
+* displayName
+* email
+* firstName
+* id
+* lastName
+* nicename
+* nickname
+* registered
+* roles
+* url
+* userName
 
+##### Authors
 
+* blogId
+* displayName
+* userLogin
 
 
 ## License
